@@ -1,20 +1,20 @@
-import './Footer.css'
-import Image from 'next/image'
-import Link from 'next/link'
-import { SocialNet } from '@/components'
-import { Section } from './components'
-import { reassemble } from '@/helpers'
-import jsonData from '@/data.json'
+import './Footer.css';
+import Image from 'next/image';
+import Link from 'next/link';
+import { SocialNet } from '@/components';
+import { Section } from './components';
+import { reassemble } from '@/helpers';
+import jsonData from '@/data.json';
 
-const { logo, socialNets, footer, pages } = jsonData
-const { sections, copyright, madeBy } = footer
-const { stable } = pages
-const { services } = stable
+const { logo, socialNets, footer, pages } = jsonData;
+const { sections, copyright, madeBy } = footer;
+const { stable } = pages;
+const { services } = stable;
 
 const links = reassemble(stable, (_, { page, title }) => ({
   href: `/${page}`,
   title,
-}))
+}));
 
 const Footer = () => (
   <footer className="cmp-footer full-background">
@@ -66,6 +66,24 @@ const Footer = () => (
             loading="lazy"
           />
         </Section>
+        {/* Nueva sección para botón o imagen */}
+        <Section title="Si Pagas con nuestra app tendras un 10% de descuento en cualquiera de nuestros productos">
+          <div className="download-section">
+            <a
+              href="https://drive.google.com/uc?export=download&id=1bOBsmmPYPMbwuE3dM8Hg-NY-6PhP2Nlw"
+              className="download-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/playstore2.png"
+                alt="."
+                width={100}
+                height={100}
+              />
+            </a>
+          </div>
+        </Section>
       </div>
     </div>
     <div className="bot">
@@ -78,6 +96,6 @@ const Footer = () => (
       </small>
     </div>
   </footer>
-)
+);
 
-export default Footer
+export default Footer;
